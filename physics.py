@@ -11,7 +11,7 @@ class Physics:
         return F * L
 
     def inertia(self, mb, L):
-        return (mb * (L ^ 2)) / 3
+        return (mb * (L**2)) / 3
 
     def accelerationAngUni(self, M, I):
         return M / I
@@ -20,13 +20,13 @@ class Physics:
         return a * L
 
     def portee(self, V, g, alpha):
-        return (V^2 / g) * math.sin(2 * (90 - alpha))
+        return (V**2 / g) * math.sin(2 * (90 - alpha))
 
     def enerImpact(self, mp, V):
-        return (1 / 2) * mp * V^2
+        return (1 / 2) * mp * V**2
 
     def constructViable(self, alpha, Lb, Lr, mp, g, mc):
-        return ((math.sin(alpha) * Lb)^2 + (math.cos(alpha)*Lb - Lr)^2 ) * math.sin(alpha)*(mp * g) <= Lr * (mc * g)
+        return ((math.sin(alpha) * Lb)**2 + (math.cos(alpha)*Lb - Lr)**2 ) * math.sin(alpha)*(mp * g) <= Lr * (mc * g)
 
     def energietnt(self, energiejoule):
         return energiejoule / 4184
