@@ -23,7 +23,7 @@ class Physics:
         return (V**2 / g) * math.sin(2 * (90 - alpha))
 
     def enerImpact(self, mp, V):
-        return (1 / 2) * mp * V**2
+        return (0.5 * mp * (V**2))
 
     def constructViable(self, alpha, Lb, Lr, mp, g, mc):
         return ((math.sin(alpha) * Lb)**2 + (math.cos(alpha)*Lb - Lr)**2 ) * math.sin(alpha)*(mp * g) <= Lr * (mc * g)
