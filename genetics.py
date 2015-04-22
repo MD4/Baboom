@@ -68,4 +68,4 @@ class Genetics:
 
             population = map(self.crossbreed, cuples)
 
-        print(population)
+        return population[0]
