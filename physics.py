@@ -1,11 +1,25 @@
+# coding=utf-8
 __author__ = 'md4'
 
 import math
 
+PI = 3.151592654
 
+'''
+    Classe utilitaire regroupant les fonctions utiles au calcul de notre
+    environnement => portée et force d'impact de notre catapulte suivant
+    ses caractéristiques
+
+    # Lb la longueur du bras en metres
+    # alpha la hauteur de la butee en degres
+    # beta l'angle de la force de traction avec le bras en degres
+    # mc la masse du contrepoids en kilos
+    # mp la masse du projectile en kilos
+    # Lr la longueur de la base en metres
+'''
 class Physics:
     def tractionForce(self, mc, mp, alpha, beta, g):
-        return (mc * g) * math.sin(beta) - (mp * g) * math.cos(alpha)
+        return ((mc * g) * math.sin(beta)) - ((mp * g) * math.cos(alpha))
 
     def momentum(self, F, L):
         return F * L
@@ -20,7 +34,7 @@ class Physics:
         return a * L
 
     def portee(self, V, g, alpha):
-        return (V ** 2 / g) * math.sin(2 * (90 - alpha))
+        return ((V ** 2) / g) * math.sin(2 * ((PI / 2.0) - alpha))
 
     def enerImpact(self, mp, V):
         return (0.5 * mp * (V ** 2))
@@ -34,6 +48,7 @@ class Physics:
 
     def masseBras(self, Lb):
         return 30 * 30 * Lb * 0.0625  # masse volumique chene
+
 
     def evaluatePortee(self, Lb, alpha, beta, mc, mp):
         g = 9.81
@@ -54,10 +69,3 @@ class Physics:
         a = self.accelerationAngUni(M, I)
         V = self.velocity(a, Lb)
         return self.energietnt(self.enerImpact(mp, V))
-
-    # Lb la longueur du bras en metres
-    # alpha la hauteur de la butee en degres
-    # beta l'angle de la force de traction avec le bras en degres
-    # mc la masse du contrepoids en kilos
-    # mp la masse du projectile en kilos
-    # Lr la longueur de la base en metres
